@@ -1,1 +1,148 @@
-/*# sourceMappingURL=main.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,700&family=Ubuntu:wght@300;400;700&display=swap");
+*:where(:not(html, iframe, canvas, img, svg, video):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a,
+button {
+  cursor: revert;
+}
+
+ol,
+ul,
+menu {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+input,
+textarea {
+  -webkit-user-select: auto;
+  user-select: auto;
+}
+
+textarea {
+  white-space: revert;
+}
+
+meter {
+  -webkit-appearance: revert;
+  appearance: revert;
+}
+
+::placeholder {
+  color: unset;
+}
+
+:where([hidden]) {
+  display: none;
+}
+
+:where([contenteditable]:not([contenteditable=false])) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-line-break: after-white-space;
+  line-break: after-white-space;
+  -webkit-user-select: auto;
+  user-select: auto;
+}
+
+:where([draggable=true]) {
+  -webkit-user-drag: element;
+}
+
+.heading__title {
+  font-family: var(--fnt-title);
+  font-size: 4rem;
+  text-align: center;
+}
+.heading__section {
+  font-size: 2rem;
+  font-weight: var(--fnt-wt-700);
+  text-align: center;
+}
+
+.logo {
+  font-family: var(--fnt-title);
+  font-size: 2.5rem;
+}
+.logo--italic {
+  font-family: var(--fnt-default);
+}
+
+:root {
+  font-size: 62.5%;
+  --header-bg-colour: var(--clr-light-blue);
+  --nav-bg-colour: var(--clr-dark-blue);
+  --footer-bg-colour: var(--clr-dark-blue);
+  --clr-offwhite: #edede9;
+  --clr-dark-grey: #343a40;
+  --clr-light-blue: #4361ee;
+  --clr-dark-blue: #1d3557;
+  --fnt-title: "Merriweather", serif;
+  --fnt-default: "Ubuntu", sans-serif;
+  --fnt-wt-300: 300;
+  --fnt-wt-400: 400;
+  --fnt-wt-700: 700;
+}
+
+body {
+  display: grid;
+  grid-template-rows: repeat(2, max-content) 1fr max-content;
+  font-family: var(--fnt-default);
+  color: var(--clr-dark-grey);
+  font-size: 1.6rem;
+  height: 100vh;
+  background: var(--clr-offwhite);
+}
+
+.nav-main {
+  background: var(--nav-bg-colour);
+  padding: 2rem 3rem;
+  color: var(--clr-offwhite);
+}
+
+.header {
+  background: var(--header-bg-colour);
+  color: var(--clr-offwhite);
+  padding: 8rem 3rem;
+}
+
+.main {
+  display: grid;
+  justify-content: center;
+  grid-template-areas: "read" "notread";
+  gap: 2rem;
+  padding: 6rem 3rem;
+}
+
+.books__read {
+  width: min(90rem, 90vw);
+  background: white;
+  padding: 5rem;
+  border-radius: 0.6rem;
+  margin-top: 2rem;
+}
+
+.footer {
+  color: var(--clr-offwhite);
+  text-align: center;
+  background: var(--footer-bg-colour);
+  padding: 3rem;
+  margin-top: auto;
+}/*# sourceMappingURL=main.css.map */

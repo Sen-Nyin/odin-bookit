@@ -9,26 +9,31 @@
     <title>Book-it List</title>
   </head>
   <body>
+    <!-- Nav -->
+    <nav class="nav-main">
+      <span class="logo">Book-it <span class="logo--italic">List</span></span>
+    </nav>
     <!-- Header -->
     <header class="header">
-      <nav class="nav-main">
-        <span class="logo">Book-it List</span>
-      </nav>
-      <h1 class="header__title">Your personal mobile library</h1>
+      <h1 class="heading__title">Your personal mobile library</h1>
     </header>
 
     <!-- Main -->
     <main class="main">
-      <section class="books books__read">
-        <h2 class="header__section">Books I've read</h2>
+      <section class="books">
+        <h2 class="heading__section">Books I've read</h2>
+        <div class="books__read"></div>
       </section>
-      <section class="books books__unread">
-        <h2 class="header__section">Books I want to read</h2>
+      <section class="books">
+        <h2 class="heading__section">Books I want to read</h2>
+        <div class="books__notread"></div>
       </section>
     </main>
 
     <!-- Footer -->
-    <footer class="footer"></footer>
+    <footer class="footer">
+      <span class="copyright">&copy; Leon Lonsdale</span>
+    </footer>
 
     <script src="js/app.js"></script>
   </body>

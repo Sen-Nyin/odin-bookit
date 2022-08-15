@@ -1,0 +1,17 @@
+.main {
+  display: grid;
+  justify-content: center;
+  grid-template-areas: 'read' 'notread';
+  gap: 2rem;
+  padding: 6rem 3rem;
+}
+
+.books {
+  &__read {
+    width: min(90rem, 90vw);
+    background: white;
+    padding: 5rem;
+    border-radius: 0.6rem;
+    margin-top: 2rem;
+  }
+}

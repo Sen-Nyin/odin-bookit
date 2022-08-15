@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,700&family=Ubuntu:wght@300;400;700&display=swap');
+
+.heading {
+  &__title {
+    font-family: var(--fnt-title);
+    font-size: 4rem;
+    text-align: center;
+  }
+  &__section {
+    font-size: 2rem;
+    font-weight: var(--fnt-wt-700);
+    text-align: center;
+  }
+}
+
+.logo {
+  font-family: var(--fnt-title);
+  font-size: 2.5rem;
+  &--italic {
+    font-family: var(--fnt-default);
+  }
+}

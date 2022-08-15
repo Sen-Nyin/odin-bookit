@@ -1,0 +1,35 @@
+@use '../abstracts/' as a;
+
+:root {
+  // 1 rem = 10px
+  font-size: 62.5%;
+
+  // colours
+
+  --header-bg-colour: var(--clr-light-blue);
+  --nav-bg-colour: var(--clr-dark-blue);
+  --footer-bg-colour: var(--clr-dark-blue);
+
+  --clr-offwhite: #edede9;
+  --clr-dark-grey: #343a40;
+  --clr-light-blue: #4361ee;
+  --clr-dark-blue: #1d3557;
+
+  // fonts
+
+  --fnt-title: 'Merriweather', serif;
+  --fnt-default: 'Ubuntu', sans-serif;
+  --fnt-wt-300: 300;
+  --fnt-wt-400: 400;
+  --fnt-wt-700: 700;
+}
+
+body {
+  display: grid;
+  grid-template-rows: repeat(2, max-content) 1fr max-content;
+  font-family: var(--fnt-default);
+  color: var(--clr-dark-grey);
+  font-size: 1.6rem;
+  height: 100vh;
+  background: var(--clr-offwhite);
+}
