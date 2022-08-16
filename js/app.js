@@ -40,7 +40,7 @@ function updateDisplay() {
       CARD.classList.add('card');
       const IMG = document.createElement('img');
       if ((book.isbn = 'No ISBN')) {
-        IMG.setAttribute('src', '../assets/img/nc-md.gif');
+        IMG.setAttribute('src', 'assets/img/nc-md.gif');
         IMG.setAttribute('alt', 'Missing book cover image');
       } else {
         IMG.setAttribute(
