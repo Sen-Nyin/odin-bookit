@@ -1,7 +1,13 @@
 'use strict';
 
 let currentView = true;
+const library = [];
 const READ = document.querySelector('.books__read');
+const btnOpenModal = document.getElementById('add-book');
+const btnCloseModal = document.querySelector('.btn--close-modal');
+const modal = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
+const btnSubmit = document.getElementById('submit');
 
 function Book(title, author, pages, isbn, read = false) {
   this.title = title;
@@ -15,27 +21,25 @@ Book.prototype.toggleRead = function () {
   this.read = !this.read;
 };
 
-const library = [];
-
-function addBook(title, author, pages, isbn, read) {
-  const BOOK_COVER = `https://covers.openlibrary.org/b/isbn/${isbn}-M.jpg`;
+const addBook = (title, author, pages, isbn, read) => {
   const newBook = new Book(title, author, pages, isbn, read);
   library.push(newBook);
   updateDisplay();
-}
+};
 
-function remBook(index) {
+const remBook = (index) => {
   // remove book
   // const DEL_TARGET = document.querySelector(DATA TAG VALUE = INDEX)
   // const READ_VALUE = library[index].read;
   // DEL_TARGET.remove();
   // updateDisplay(READ_VALUE);
-}
-function clear() {
-  READ.innerHTML = '';
-}
+};
 
-function updateDisplay() {
+const clear = () => {
+  READ.innerHTML = '';
+};
+
+const updateDisplay = () => {
   clear();
   for (const [index, book] of library.entries()) {
     if (book.read === currentView) {
@@ -92,34 +96,31 @@ function updateDisplay() {
       READ.append(CARD);
     }
   }
-}
+};
 
-function updateReadDisplay(target) {
+const updateReadDisplay = (target) => {
   for (const [index, book] of library) {
     if (book.read) {
       // do stuff
     }
   }
-}
+};
 
-const btnOpenModal = document.getElementById('add-book');
-const btnCloseModal = document.querySelector('.btn--close-modal');
-const modal = document.querySelector('.modal');
-const overlay = document.querySelector('.overlay');
 const openModal = (e) => {
   e.preventDefault();
   modal.classList.remove('hidden');
   overlay.classList.remove('hidden');
 };
+
 const closeModal = (e) => {
   modal.classList.add('hidden');
   overlay.classList.add('hidden');
 };
+
 btnOpenModal.addEventListener('click', openModal);
 overlay.addEventListener('click', closeModal);
 btnCloseModal.addEventListener('click', closeModal);
 
-const btnSubmit = document.getElementById('submit');
 btnSubmit.addEventListener('click', (e) => {
   e.preventDefault();
   const BOOK_TITLE = document.getElementById('book-title').value;
