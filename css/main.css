@@ -80,6 +80,7 @@ meter {
 .logo {
   font-family: var(--fnt-title);
   font-size: 2.5rem;
+  margin-right: auto;
 }
 .logo--italic {
   font-family: var(--fnt-default);
@@ -112,6 +113,9 @@ body {
 }
 
 .nav-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background: var(--nav-bg-colour);
   padding: 2rem 3rem;
   color: var(--clr-offwhite);
@@ -132,11 +136,27 @@ body {
 }
 
 .books__read {
-  width: min(90rem, 90vw);
+  display: grid;
+  gap: 2rem;
+  width: min(120rem, 90vw);
   background: white;
-  padding: 5rem;
+  padding: 2rem;
   border-radius: 0.6rem;
   margin-top: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+@media only screen and (min-width: 48em) {
+  .books__read {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (min-width: 75.0625em) {
+  .books__read {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.books__read > * {
+  border-left: 5px solid green;
 }
 
 .footer {
@@ -145,4 +165,65 @@ body {
   background: var(--footer-bg-colour);
   padding: 3rem;
   margin-top: auto;
+}
+
+.btn {
+  background: var(--clr-offwhite);
+  border-radius: 0.5rem;
+  transition: 0.25s ease;
+}
+.btn--add {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: var(--fnt-wt-700);
+  width: 3rem;
+  aspect-ratio: 1;
+  border-radius: 100rem;
+  color: var(--clr-dark-grey);
+}
+
+.card {
+  padding: 1.5rem;
+  display: grid;
+  gap: 2rem;
+  grid-template-areas: "booktitle booktitle" "img authortitle" "img authorname" "img pagestitle" "img pagescount" "img rttitle" "img readtoggle";
+  grid-template-columns: max-content max-content;
+  align-items: center;
+  justify-items: start;
+  border-radius: 0.5rem;
+  background: var(--clr-offwhite);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.card__image {
+  grid-area: img;
+  width: 100px;
+  border-radius: 0.5rem;
+  align-self: start;
+}
+.card__heading {
+  font-weight: var(--fnt-wt-700);
+}
+.card__heading--main {
+  font-size: 2rem;
+}
+.card--book-title {
+  grid-area: booktitle;
+}
+.card--author-title {
+  grid-area: authortitle;
+}
+.card--author-name {
+  grid-area: authorname;
+}
+.card--pages-title {
+  grid-area: pagestitle;
+}
+.card--pages-count {
+  grid-area: pagescount;
+}
+.card--read-toggle-title {
+  grid-area: rttitle;
+}
+.card--read-toggle {
+  grid-area: readtoggle;
 }/*# sourceMappingURL=main.css.map */

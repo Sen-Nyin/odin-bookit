@@ -1,4 +1,7 @@
 .nav-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background: var(--nav-bg-colour);
   padding: 2rem 3rem;
   color: var(--clr-offwhite);

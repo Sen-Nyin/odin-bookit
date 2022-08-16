@@ -1,0 +1,48 @@
+.card {
+  padding: 1.5rem;
+  display: grid;
+  gap: 2rem;
+  grid-template-areas: 'booktitle booktitle' 'img authortitle' 'img authorname' 'img pagestitle' 'img pagescount' 'img rttitle' 'img readtoggle';
+  grid-template-columns: max-content max-content;
+  //   grid-template-rows: repeat(4, min-content);
+  align-items: center;
+  justify-items: start;
+  border-radius: 0.5rem;
+  background: var(--clr-offwhite);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  &__image {
+    grid-area: img;
+    width: 100px;
+    // height: 100%;
+    // width: 100%;
+    border-radius: 0.5rem;
+    align-self: start;
+  }
+  &__heading {
+    font-weight: var(--fnt-wt-700);
+    &--main {
+      font-size: 2rem;
+    }
+  }
+  &--book-title {
+    grid-area: booktitle;
+  }
+  &--author-title {
+    grid-area: authortitle;
+  }
+  &--author-name {
+    grid-area: authorname;
+  }
+  &--pages-title {
+    grid-area: pagestitle;
+  }
+  &--pages-count {
+    grid-area: pagescount;
+  }
+  &--read-toggle-title {
+    grid-area: rttitle;
+  }
+  &--read-toggle {
+    grid-area: readtoggle;
+  }
+}

@@ -1,0 +1,14 @@
+.btn {
+  background: var(--clr-offwhite);
+  border-radius: 0.5rem;
+  transition: 0.25s ease;
+  &--add {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: var(--fnt-wt-700);
+    width: 3rem;
+    aspect-ratio: 1;
+    border-radius: 100rem;
+    color: var(--clr-dark-grey);
+  }
+}

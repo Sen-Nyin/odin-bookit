@@ -12,6 +12,7 @@
     <!-- Nav -->
     <nav class="nav-main">
       <span class="logo">Book-it <span class="logo--italic">List</span></span>
+      <a class="btn btn--add" id="add-book">+</a>
     </nav>
     <!-- Header -->
     <header class="header">
@@ -22,11 +23,60 @@
     <main class="main">
       <section class="books">
         <h2 class="heading__section">Books I've read</h2>
-        <div class="books__read"></div>
+        <ul class="books__read">
+          <li class="card">
+            <img
+              src="https://prodimage.images-bn.com/pimages/9780345445605_p0_v1_s550x406.jpg"
+              alt=""
+              class="card__image"
+            />
+            <h3 class="card__heading card__heading--main card--book-title">
+              The Hobbit
+            </h3>
+            <span class="card__heading card--author-title">Author</span>
+            <span class="card__text card--author-name">J R R Tolkien</span>
+            <span class="card__heading card--pages-title">Pages</span>
+            <span class="card__text card--pages-count">700</span>
+            <span class="card__heading card--read-title">Read?</span>
+            <input type="checkbox" class="card--read-toggle" />
+          </li>
+          <li class="card">
+            <img
+              src="https://prodimage.images-bn.com/pimages/9780345445605_p0_v1_s550x406.jpg"
+              alt=""
+              class="card__image"
+            />
+            <h3 class="card__heading card__heading--main card--book-title">
+              The Hobbit
+            </h3>
+            <span class="card__heading card--author-title">Author</span>
+            <span class="card__text card--author-name">J R R Tolkien</span>
+            <span class="card__heading card--pages-title">Pages</span>
+            <span class="card__text card--pages-count">700</span>
+            <span class="card__heading card--read-title">Read?</span>
+            <input type="checkbox" class="card--read-toggle" />
+          </li>
+          <li class="card">
+            <img
+              src="https://prodimage.images-bn.com/pimages/9780345445605_p0_v1_s550x406.jpg"
+              alt=""
+              class="card__image"
+            />
+            <h3 class="card__heading card__heading--main card--book-title">
+              The Hobbit
+            </h3>
+            <span class="card__heading card--author-title">Author</span>
+            <span class="card__text card--author-name">J R R Tolkien</span>
+            <span class="card__heading card--pages-title">Pages</span>
+            <span class="card__text card--pages-count">700</span>
+            <span class="card__heading card--read-title">Read?</span>
+            <input type="checkbox" class="card--read-toggle" />
+          </li>
+        </ul>
       </section>
       <section class="books">
         <h2 class="heading__section">Books I want to read</h2>
-        <div class="books__notread"></div>
+        <ul class="books__unread"></ul>
       </section>
     </main>
 
