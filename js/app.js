@@ -45,3 +45,20 @@ function updateReadDisplay(target) {
     }
   }
 }
+
+const btnOpenModal = document.getElementById('add-book');
+const btnCloseModal = document.querySelector('.btn--close-modal');
+const modal = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
+const openModal = (e) => {
+  e.preventDefault();
+  modal.classList.remove('hidden');
+  overlay.classList.remove('hidden');
+};
+const closeModal = (e) => {
+  modal.classList.add('hidden');
+  overlay.classList.add('hidden');
+};
+btnOpenModal.addEventListener('click', openModal);
+overlay.addEventListener('click', closeModal);
+btnCloseModal.addEventListener('click', closeModal);

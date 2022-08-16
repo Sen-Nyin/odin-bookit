@@ -13,7 +13,7 @@
     <!-- Nav -->
     <nav class="nav-main">
       <span class="logo">Book-it <span class="logo--italic">List</span></span>
-      <a class="btn btn--add" id="add-book">+</a>
+      <a href="" class="btn btn--add" id="add-book">+</a>
     </nav>
     <!-- Header -->
     <header class="header">
@@ -165,6 +165,28 @@
     <footer class="footer">
       <span class="copyright">&copy; Leon Lonsdale</span>
     </footer>
+
+    <!-- Modal Form - add book -->
+
+    <div class="modal hidden">
+      <button class="btn--close-modal">&times;</button>
+      <h2 class="modal__header">
+        Add your book <br />
+        <span class="highlight">now!</span>
+      </h2>
+      <form class="modal__form">
+        <label>Book Title</label>
+        <input type="text" />
+        <label>Author</label>
+        <input type="text" />
+        <label>No. Pages</label>
+        <input type="text" />
+        <label>Iban</label>
+        <input type="number" />
+        <button class="btn">Add &rarr;</button>
+      </form>
+    </div>
+    <div class="overlay hidden"></div>
 
     <script src="js/app.js"></script>
   </body>
