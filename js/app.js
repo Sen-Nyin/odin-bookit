@@ -1,6 +1,7 @@
 'use strict';
 
 let currentView = true;
+const READ = document.querySelector('.books__read');
 
 function Book(title, author, pages, isbn, read = false) {
   this.title = title;
@@ -30,16 +31,18 @@ function remBook(index) {
   // DEL_TARGET.remove();
   // updateDisplay(READ_VALUE);
 }
+function clear() {
+  READ.innerHTML = '';
+}
 
 function updateDisplay() {
-  const READ = document.querySelector('.books__read');
-  const UNREAD = document.querySelector('.books__unread');
+  clear();
   for (const [index, book] of library.entries()) {
     if (book.read === currentView) {
       const CARD = document.createElement('li');
       CARD.classList.add('card');
       const IMG = document.createElement('img');
-      if ((book.isbn = 'No ISBN')) {
+      if (book.isbn === 'No ISBN') {
         IMG.setAttribute('src', 'assets/img/nc-md.gif');
         IMG.setAttribute('alt', 'Missing book cover image');
       } else {
@@ -123,13 +126,18 @@ btnSubmit.addEventListener('click', (e) => {
   const AUTHOR_NAME = document.getElementById('author').value;
   const PAGES_COUNT = document.getElementById('pages').value;
 
-  // BUG not currently setting the value correctly!
-
   const ISBN =
-    document.getElementById('isbn').value === ''
+    document.getElementById('isbn').value === null
       ? 'No ISBN'
       : document.getElementById('isbn').value;
 
   const READ = true;
   addBook(BOOK_TITLE, AUTHOR_NAME, PAGES_COUNT, ISBN, READ);
+
+  closeModal();
+  document.getElementById('book-title').value = '';
+  document.getElementById('author').value = '';
+  document.getElementById('pages').value = '';
+  document.getElementById('pages').value = '';
+  document.getElementById('isbn').value = '';
 });
