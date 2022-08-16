@@ -5,4 +5,7 @@
   background: var(--nav-bg-colour);
   padding: 2rem 3rem;
   color: var(--clr-offwhite);
+  position: sticky;
+  top: 0;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }

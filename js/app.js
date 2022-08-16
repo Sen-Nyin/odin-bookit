@@ -2,7 +2,7 @@
 
 let currentView = true;
 const library = [];
-const bookDisplayEle = document.querySelector('.books__read');
+const bookDisplayEle = document.querySelector('.bookshelf');
 
 const openModalBtn = document.getElementById('add-book');
 const closeModalBtn = document.querySelector('.btn--close-modal');
@@ -29,7 +29,7 @@ const addBook = (title, author, pages, isbn, read) => {
   updateDisplay();
 };
 
-const remBook = (index) => {
+const removeBook = (index) => {
   // remove book
   // const DEL_TARGET = document.querySelector(DATA TAG VALUE = INDEX)
   // const READ_VALUE = library[index].read;
@@ -37,18 +37,18 @@ const remBook = (index) => {
   // updateDisplay(READ_VALUE);
 };
 
-const clear = () => {
+const clearDisplay = () => {
   bookDisplayEle.innerHTML = '';
 };
 
 const updateDisplay = () => {
-  clear();
+  clearDisplay();
   for (const [index, book] of library.entries()) {
     if (book.read === currentView) {
       const cardEle = document.createElement('li');
-      cardEle.classList.add('card');
+      cardEle.classList.add('card', `${currentView ? 'read' : 'unread'}`);
       const coverImgEle = document.createElement('img');
-      if (book.isbn === 'No ISBN') {
+      if (!book.isbn) {
         coverImgEle.setAttribute('src', 'assets/img/nc-md.gif');
         coverImgEle.setAttribute('alt', 'Missing book cover image');
       } else {
@@ -129,10 +129,7 @@ submitBtn.addEventListener('click', (e) => {
   const authorNameValue = document.getElementById('author').value;
   const pageCountValue = document.getElementById('pages').value;
 
-  const isbnValue =
-    document.getElementById('isbn').value === null
-      ? 'No ISBN'
-      : document.getElementById('isbn').value;
+  const isbnValue = document.getElementById('isbn').value;
 
   const readStatus = true;
   addBook(
