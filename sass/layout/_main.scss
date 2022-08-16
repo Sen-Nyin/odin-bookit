@@ -6,10 +6,6 @@
   grid-template-areas: 'read' 'notread';
   gap: 2rem;
   padding: 6rem 3rem;
-
-  @include a.breakpoint(2100, min) {
-    grid-template-areas: 'read notread';
-  }
 }
 
 .books {
@@ -17,7 +13,7 @@
   &__notread {
     display: grid;
     gap: 2rem;
-    width: min(100rem, 90vw);
+    width: min(150rem, 90vw);
     background: white;
     padding: 2rem;
     border-radius: 0.6rem;
@@ -30,9 +26,18 @@
     @include a.breakpoint(xxl, min) {
       grid-template-columns: repeat(3, 1fr);
     }
-
+    @include a.breakpoint(1600, min) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  &__read {
     & > * {
       border-left: 5px solid green;
+    }
+  }
+  &__notread {
+    & > * {
+      border-left: 5px solid red;
     }
   }
 }

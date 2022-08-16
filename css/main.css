@@ -135,16 +135,11 @@ body {
   gap: 2rem;
   padding: 6rem 3rem;
 }
-@media only screen and (min-width: 131.25em) {
-  .main {
-    grid-template-areas: "read notread";
-  }
-}
 
 .books__read, .books__notread {
   display: grid;
   gap: 2rem;
-  width: min(100rem, 90vw);
+  width: min(150rem, 90vw);
   background: white;
   padding: 2rem;
   border-radius: 0.6rem;
@@ -161,8 +156,16 @@ body {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-.books__read > *, .books__notread > * {
+@media only screen and (min-width: 100em) {
+  .books__read, .books__notread {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.books__read > * {
   border-left: 5px solid green;
+}
+.books__notread > * {
+  border-left: 5px solid red;
 }
 
 .footer {
@@ -205,6 +208,7 @@ body {
   width: 100px;
   border-radius: 0.5rem;
   align-self: start;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .card__heading {
   font-weight: var(--fnt-wt-700);

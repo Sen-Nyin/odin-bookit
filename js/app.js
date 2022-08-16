@@ -37,3 +37,11 @@ function updateDisplay() {
     // append
   }
 }
+
+function updateReadDisplay(target) {
+  for (const [index, book] of library) {
+    if (book.read) {
+      // do stuff
+    }
+  }
+}
