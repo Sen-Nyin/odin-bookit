@@ -75,6 +75,7 @@ meter {
   font-size: 2rem;
   font-weight: var(--fnt-wt-700);
   text-align: center;
+  grid-column: 1/span 3;
 }
 
 .logo {
@@ -134,11 +135,16 @@ body {
   gap: 2rem;
   padding: 6rem 3rem;
 }
+@media only screen and (min-width: 131.25em) {
+  .main {
+    grid-template-areas: "read notread";
+  }
+}
 
-.books__read {
+.books__read, .books__notread {
   display: grid;
   gap: 2rem;
-  width: min(120rem, 90vw);
+  width: min(100rem, 90vw);
   background: white;
   padding: 2rem;
   border-radius: 0.6rem;
@@ -146,16 +152,16 @@ body {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 @media only screen and (min-width: 48em) {
-  .books__read {
+  .books__read, .books__notread {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 @media only screen and (min-width: 75.0625em) {
-  .books__read {
+  .books__read, .books__notread {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-.books__read > * {
+.books__read > *, .books__notread > * {
   border-left: 5px solid green;
 }
 
