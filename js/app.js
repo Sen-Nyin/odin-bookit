@@ -1,5 +1,7 @@
 'use strict';
 
+let currentView = true;
+
 function Book(title, author, pages, isbn, read = false) {
   this.title = title;
   this.author = author;
@@ -16,25 +18,76 @@ const library = [];
 
 function addBook(title, author, pages, isbn, read) {
   const BOOK_COVER = `https://covers.openlibrary.org/b/isbn/${isbn}-M.jpg`;
-  const newBook = new Book(title, author, pages, BOOK_COVER, read);
+  const newBook = new Book(title, author, pages, isbn, read);
   library.push(newBook);
   updateDisplay();
 }
 
 function remBook(index) {
   // remove book
+  // const DEL_TARGET = document.querySelector(DATA TAG VALUE = INDEX)
+  // const READ_VALUE = library[index].read;
+  // DEL_TARGET.remove();
+  // updateDisplay(READ_VALUE);
 }
 
 function updateDisplay() {
   const READ = document.querySelector('.books__read');
   const UNREAD = document.querySelector('.books__unread');
-  for (const [index, book] of library) {
-    // create div
-    // create image
-    // create text tags
-    // create read switch
-    // create delete button - index into data tag
-    // append
+  for (const [index, book] of library.entries()) {
+    if (book.read === currentView) {
+      const CARD = document.createElement('li');
+      CARD.classList.add('card');
+      const IMG = document.createElement('img');
+      if ((book.isbn = 'No ISBN')) {
+        IMG.setAttribute('src', '../assets/img/nc-md.gif');
+        IMG.setAttribute('alt', 'Missing book cover image');
+      } else {
+        IMG.setAttribute(
+          'src',
+          `https://covers.openlibrary.org/b/isbn/${book.isbn}-M.jpg`
+        );
+        IMG.setAttribute('alt', 'Book cover image');
+      }
+      IMG.classList.add('card__image');
+
+      const BOOK_TITLE = document.createElement('h3');
+      BOOK_TITLE.classList.add(
+        'card__heading',
+        'card__heading--main',
+        'card--book-title'
+      );
+      BOOK_TITLE.textContent = `${book.title}`;
+      const AUTHOR_TITLE = document.createElement('span');
+      AUTHOR_TITLE.classList.add('card__heading', 'card--author-title');
+      AUTHOR_TITLE.textContent = 'Author:';
+      const AUTHOR_NAME = document.createElement('span');
+      AUTHOR_NAME.classList.add('card__text', 'card--author-name');
+      AUTHOR_NAME.textContent = `${book.author}`;
+      const PAGES_TITLE = document.createElement('span');
+      PAGES_TITLE.classList.add('card__heading', 'card--pages-title');
+      PAGES_TITLE.textContent = 'Pages:';
+      const PAGES_COUNT = document.createElement('span');
+      PAGES_COUNT.classList.add('card__text', 'card--pages-count');
+      PAGES_COUNT.textContent = `${book.pages}`;
+      const READ_TITLE = document.createElement('span');
+      READ_TITLE.classList.add('card__heading', 'card--read-title');
+      READ_TITLE.textContent = 'Read?';
+      const TOGGLE = document.createElement('input');
+      TOGGLE.setAttribute('type', 'checkbox');
+      TOGGLE.classList.add('card--read-toggle');
+
+      CARD.append(IMG);
+      CARD.append(BOOK_TITLE);
+      CARD.append(AUTHOR_TITLE);
+      CARD.append(AUTHOR_NAME);
+      CARD.append(PAGES_TITLE);
+      CARD.append(PAGES_COUNT);
+      CARD.append(READ_TITLE);
+      CARD.append(TOGGLE);
+
+      READ.append(CARD);
+    }
   }
 }
 
@@ -62,3 +115,21 @@ const closeModal = (e) => {
 btnOpenModal.addEventListener('click', openModal);
 overlay.addEventListener('click', closeModal);
 btnCloseModal.addEventListener('click', closeModal);
+
+const btnSubmit = document.getElementById('submit');
+btnSubmit.addEventListener('click', (e) => {
+  e.preventDefault();
+  const BOOK_TITLE = document.getElementById('book-title').value;
+  const AUTHOR_NAME = document.getElementById('author').value;
+  const PAGES_COUNT = document.getElementById('pages').value;
+
+  // BUG not currently setting the value correctly!
+
+  const ISBN =
+    document.getElementById('isbn').value === ''
+      ? 'No ISBN'
+      : document.getElementById('isbn').value;
+
+  const READ = true;
+  addBook(BOOK_TITLE, AUTHOR_NAME, PAGES_COUNT, ISBN, READ);
+});
