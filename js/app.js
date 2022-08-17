@@ -1,6 +1,6 @@
 'use strict';
 
-let currentView = true;
+let currentView = 'all';
 const library = [];
 const bookDisplayEle = document.querySelector('.bookshelf');
 
@@ -9,6 +9,7 @@ const closeModalBtn = document.querySelector('.btn--close-modal');
 const submitBtn = document.getElementById('submit');
 const readBtn = document.getElementById('readbtn');
 const unreadBtn = document.getElementById('unreadbtn');
+const allBtn = document.getElementById('allbtn');
 
 const modalEle = document.querySelector('.modal');
 const overlayEle = document.querySelector('.overlay');
@@ -50,9 +51,9 @@ const clearDisplay = () => {
 const updateDisplay = () => {
   clearDisplay();
   for (const [index, book] of library.entries()) {
-    if (book.read === currentView) {
+    if (book.read === currentView || currentView === 'all') {
       const cardEle = document.createElement('li');
-      cardEle.classList.add('card', `${currentView ? 'read' : 'unread'}`);
+      cardEle.classList.add('card', `${book.read ? 'read' : 'unread'}`);
       const coverImgEle = document.createElement('img');
       if (!book.isbn) {
         coverImgEle.setAttribute('src', 'assets/img/nc-md.gif');
@@ -138,12 +139,19 @@ const toggleDisplay = (e) => {
   const target = e.target.id;
   if (target === 'readbtn') {
     currentView = true;
+    allBtn.classList.remove('active');
     readBtn.classList.add('active');
     unreadBtn.classList.remove('active');
-  } else {
+  } else if (target === 'unreadbtn') {
     currentView = false;
+    allBtn.classList.remove('active');
     readBtn.classList.remove('active');
     unreadBtn.classList.add('active');
+  } else {
+    currentView = 'all';
+    allBtn.classList.add('active');
+    readBtn.classList.remove('active');
+    unreadBtn.classList.remove('active');
   }
   updateDisplay();
 };
@@ -151,6 +159,7 @@ const toggleDisplay = (e) => {
 openModalBtn.addEventListener('click', openModal);
 overlayEle.addEventListener('click', closeModal);
 closeModalBtn.addEventListener('click', closeModal);
+allBtn.addEventListener('click', toggleDisplay);
 readBtn.addEventListener('click', toggleDisplay);
 unreadBtn.addEventListener('click', toggleDisplay);
 

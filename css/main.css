@@ -221,6 +221,7 @@ body {
   height: 4rem;
   text-align: center;
   text-transform: uppercase;
+  border-radius: 0;
   font-size: var(--fnt-sz-display-button);
   cursor: pointer;
 }
