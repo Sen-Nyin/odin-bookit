@@ -4,7 +4,7 @@
   transition: 0.25s ease;
   &--add {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: var(--fnt-sz-plus-button);
     font-weight: var(--fnt-wt-700);
     width: 3rem;
     aspect-ratio: 1;
@@ -17,7 +17,7 @@
     position: absolute;
     top: 0.5rem;
     right: 2rem;
-    font-size: 4rem;
+    font-size: var(--fnt-sz-close-modal);
     cursor: pointer;
     border: none;
     background: none;

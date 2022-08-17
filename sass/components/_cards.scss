@@ -2,7 +2,7 @@
   padding: 1.5rem;
   display: grid;
   gap: 1rem;
-  grid-template-areas: 'booktitle' 'img' 'authortitle' 'authorname' 'pagestitle' 'pagescount' 'rttitle' 'readtoggle';
+  grid-template-areas: 'title' 'img' 'author' 'pages' 'rttitle' 'readtoggle';
   background: white;
   align-items: center;
   justify-items: center;
@@ -10,33 +10,27 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   &__image {
     grid-area: img;
-    // height: 100%;
-    // width: 100%;
     border-radius: 0.5rem;
     align-self: start;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
-  &__heading {
-    font-weight: var(--fnt-wt-700);
-    &--main {
-      font-size: 2rem;
-      text-align: center;
-    }
-  }
   &--book-title {
-    grid-area: booktitle;
+    grid-area: title;
+    font-size: var(--fnt-sz-card-header);
+    font-weight: var(--fnt-wt-700);
+    text-align: center;
   }
   &--author-title {
-    grid-area: authortitle;
+    grid-area: author;
   }
   &--author-name {
-    grid-area: authorname;
+    font-weight: var(--fnt-wt-700);
   }
   &--pages-title {
-    grid-area: pagestitle;
+    grid-area: pages;
   }
   &--pages-count {
-    grid-area: pagescount;
+    font-weight: var(--fnt-wt-700);
   }
   &--read-toggle-title {
     grid-area: rttitle;

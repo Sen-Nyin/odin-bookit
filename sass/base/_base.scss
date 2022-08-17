@@ -22,6 +22,13 @@
   --fnt-wt-300: 300;
   --fnt-wt-400: 400;
   --fnt-wt-700: 700;
+  --fnt-sz-default: 1.6rem;
+  --fnt-sz-section-heading: 2rem;
+  --fnt-sz-card-header: 2rem;
+  --fnt-sz-brand: 2.5rem;
+  --fnt-sz-plus-button: 2.5rem;
+  --fnt-sz-hero-heading: 4rem;
+  --fnt-sz-close-modal: 4rem;
 }
 
 body {
@@ -29,7 +36,7 @@ body {
   grid-template-rows: repeat(2, max-content) 1fr max-content;
   font-family: var(--fnt-default);
   color: var(--clr-dark-grey);
-  font-size: 1.6rem;
+  font-size: var(--fnt-sz-default);
   height: 100vh;
   background: var(--clr-offwhite);
 }

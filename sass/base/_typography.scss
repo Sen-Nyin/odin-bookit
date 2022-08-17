@@ -3,22 +3,21 @@
 .heading {
   &__title {
     font-family: var(--fnt-title);
-    font-size: 4rem;
+    font-size: var(--fnt-sz-hero-heading);
     text-align: center;
   }
   &__section {
-    font-size: 2rem;
+    font-size: var(--fnt-sz-section-heading);
     font-weight: var(--fnt-wt-700);
     text-align: center;
-    grid-column: 1 / span 3;
   }
 }
 
 .logo {
   font-family: var(--fnt-title);
-  font-size: 2.5rem;
+  font-size: var(--fnt-sz-brand);
   margin-right: auto;
-  &--italic {
+  & > * {
     font-family: var(--fnt-default);
   }
 }

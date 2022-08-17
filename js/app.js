@@ -61,27 +61,30 @@ const updateDisplay = () => {
       coverImgEle.classList.add('card__image');
 
       const bookTitleLabel = document.createElement('h3');
-      bookTitleLabel.classList.add(
-        'card__heading',
-        'card__heading--main',
-        'card--book-title'
-      );
+      bookTitleLabel.classList.add('card__heading', 'card--book-title');
       bookTitleLabel.textContent = `${book.title}`;
+
       const authorLabel = document.createElement('span');
-      authorLabel.classList.add('card__heading', 'card--author-title');
-      authorLabel.textContent = 'Author:';
+      authorLabel.classList.add('card--author-title');
+      authorLabel.textContent = 'by ';
       const authorNameText = document.createElement('span');
-      authorNameText.classList.add('card__text', 'card--author-name');
+      authorNameText.classList.add('card--author-name');
       authorNameText.textContent = `${book.author}`;
+      authorLabel.append(authorNameText);
+
       const pageCountLabel = document.createElement('span');
-      pageCountLabel.classList.add('card__heading', 'card--pages-title');
-      pageCountLabel.textContent = 'Pages:';
+      pageCountLabel.classList.add('card--pages-title');
+      pageCountLabel.textContent = 'pages';
+
       const pageCountText = document.createElement('span');
-      pageCountText.classList.add('card__text', 'card--pages-count');
-      pageCountText.textContent = `${book.pages}`;
+      pageCountText.classList.add('card--pages-count');
+      pageCountText.textContent = `${book.pages} `;
+      pageCountLabel.prepend(pageCountText);
+
       const readStatusLabel = document.createElement('span');
       readStatusLabel.classList.add('card__heading', 'card--read-title');
       readStatusLabel.textContent = 'Read?';
+
       const readSwitchEle = document.createElement('input');
       readSwitchEle.setAttribute('type', 'checkbox');
       readSwitchEle.classList.add('card--read-toggle');
@@ -89,9 +92,7 @@ const updateDisplay = () => {
       cardEle.append(coverImgEle);
       cardEle.append(bookTitleLabel);
       cardEle.append(authorLabel);
-      cardEle.append(authorNameText);
       cardEle.append(pageCountLabel);
-      cardEle.append(pageCountText);
       cardEle.append(readStatusLabel);
       cardEle.append(readSwitchEle);
 

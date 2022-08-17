@@ -68,22 +68,21 @@ meter {
 
 .heading__title {
   font-family: var(--fnt-title);
-  font-size: 4rem;
+  font-size: var(--fnt-sz-hero-heading);
   text-align: center;
 }
 .heading__section {
-  font-size: 2rem;
+  font-size: var(--fnt-sz-section-heading);
   font-weight: var(--fnt-wt-700);
   text-align: center;
-  grid-column: 1/span 3;
 }
 
 .logo {
   font-family: var(--fnt-title);
-  font-size: 2.5rem;
+  font-size: var(--fnt-sz-brand);
   margin-right: auto;
 }
-.logo--italic {
+.logo > * {
   font-family: var(--fnt-default);
 }
 
@@ -101,6 +100,13 @@ meter {
   --fnt-wt-300: 300;
   --fnt-wt-400: 400;
   --fnt-wt-700: 700;
+  --fnt-sz-default: 1.6rem;
+  --fnt-sz-section-heading: 2rem;
+  --fnt-sz-card-header: 2rem;
+  --fnt-sz-brand: 2.5rem;
+  --fnt-sz-plus-button: 2.5rem;
+  --fnt-sz-hero-heading: 4rem;
+  --fnt-sz-close-modal: 4rem;
 }
 
 body {
@@ -108,7 +114,7 @@ body {
   grid-template-rows: repeat(2, max-content) 1fr max-content;
   font-family: var(--fnt-default);
   color: var(--clr-dark-grey);
-  font-size: 1.6rem;
+  font-size: var(--fnt-sz-default);
   height: 100vh;
   background: var(--clr-offwhite);
 }
@@ -177,7 +183,7 @@ body {
 }
 .btn--add {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: var(--fnt-sz-plus-button);
   font-weight: var(--fnt-wt-700);
   width: 3rem;
   aspect-ratio: 1;
@@ -190,7 +196,7 @@ body {
   position: absolute;
   top: 0.5rem;
   right: 2rem;
-  font-size: 4rem;
+  font-size: var(--fnt-sz-close-modal);
   cursor: pointer;
   border: none;
   background: none;
@@ -200,7 +206,7 @@ body {
   padding: 1.5rem;
   display: grid;
   gap: 1rem;
-  grid-template-areas: "booktitle" "img" "authortitle" "authorname" "pagestitle" "pagescount" "rttitle" "readtoggle";
+  grid-template-areas: "title" "img" "author" "pages" "rttitle" "readtoggle";
   background: white;
   align-items: center;
   justify-items: center;
@@ -213,27 +219,23 @@ body {
   align-self: start;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-.card__heading {
+.card--book-title {
+  grid-area: title;
+  font-size: var(--fnt-sz-card-header);
   font-weight: var(--fnt-wt-700);
-}
-.card__heading--main {
-  font-size: 2rem;
   text-align: center;
 }
-.card--book-title {
-  grid-area: booktitle;
-}
 .card--author-title {
-  grid-area: authortitle;
+  grid-area: author;
 }
 .card--author-name {
-  grid-area: authorname;
+  font-weight: var(--fnt-wt-700);
 }
 .card--pages-title {
-  grid-area: pagestitle;
+  grid-area: pages;
 }
 .card--pages-count {
-  grid-area: pagescount;
+  font-weight: var(--fnt-wt-700);
 }
 .card--read-toggle-title {
   grid-area: rttitle;
