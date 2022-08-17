@@ -13,6 +13,8 @@ const unreadBtn = document.getElementById('unreadbtn');
 const modalEle = document.querySelector('.modal');
 const overlayEle = document.querySelector('.overlay');
 
+const readSwitches = document.querySelectorAll('[data-index]');
+
 function Book(title, author, pages, isbn, read = false) {
   this.title = title;
   this.author = author;
@@ -97,6 +99,7 @@ const updateDisplay = () => {
       readSwitchCheck.setAttribute('type', 'checkbox');
       readSwitchCheck.classList.add('switch__checkbox');
       book.read ? (readSwitchCheck.checked = true) : '';
+      readSwitchCheck.dataset.index = index;
       readSwitchEle.append(readSwitchCheck);
       const readSwitchSlider = document.createElement('span');
       readSwitchSlider.classList.add('switch__slider', 'round');
