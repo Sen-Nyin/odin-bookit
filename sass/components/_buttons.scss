@@ -22,4 +22,24 @@
     border: none;
     background: none;
   }
+  &--display-select {
+    background: var(--clr-offwhite);
+    color: var(--clr-dark-grey);
+    width: 10rem;
+    height: 4rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: var(--fnt-sz-display-button);
+    cursor: pointer;
+
+    &:first-child {
+      border-radius: 10rem 0 0 10rem;
+    }
+    &:last-child {
+      border-radius: 0 10rem 10rem 0;
+    }
+    &:hover {
+      filter: drop-shadow(3px 5px 5px rgba(0, 0, 0, 0.45));
+    }
+  }
 }

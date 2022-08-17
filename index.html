@@ -23,7 +23,13 @@
     <!-- Main -->
     <main class="main">
       <section class="books">
-        <h2 class="heading__section">Books I've read</h2>
+        <h2 class="heading__section">My bookshelf</h2>
+        <div class="books__status-control">
+          <button class="btn btn--display-select active" id="readbtn">
+            Read
+          </button>
+          <button class="btn btn--display-select" id="unreadbtn">Unread</button>
+        </div>
         <ul class="bookshelf">
           <li class="card">
             <img
@@ -166,10 +172,7 @@
 
     <div class="modal hidden">
       <button class="btn--close-modal">&times;</button>
-      <h2 class="modal__header">
-        Add your book <br />
-        <span class="highlight">now!</span>
-      </h2>
+      <h2 class="modal__header">Add your book</h2>
       <form class="modal__form">
         <label>Book Title</label>
         <input type="text" id="book-title" />

@@ -3,10 +3,20 @@
 .main {
   display: grid;
   justify-content: center;
+  align-content: start;
   gap: 2rem;
   padding: 6rem 3rem;
 }
 
+.books {
+  display: grid;
+  place-items: center;
+  gap: 2rem;
+  &__status-control {
+    display: flex;
+    filter: drop-shadow(3px 10px 15px rgba(0, 0, 0, 0.45));
+  }
+}
 .bookshelf {
   display: grid;
   gap: 2rem;

@@ -7,6 +7,8 @@ const bookDisplayEle = document.querySelector('.bookshelf');
 const openModalBtn = document.getElementById('add-book');
 const closeModalBtn = document.querySelector('.btn--close-modal');
 const submitBtn = document.getElementById('submit');
+const readBtn = document.getElementById('readbtn');
+const unreadBtn = document.getElementById('unreadbtn');
 
 const modalEle = document.querySelector('.modal');
 const overlayEle = document.querySelector('.overlay');
@@ -101,14 +103,6 @@ const updateDisplay = () => {
   }
 };
 
-const updateReadDisplay = (target) => {
-  for (const [index, book] of library) {
-    if (book.read) {
-      // do stuff
-    }
-  }
-};
-
 const openModal = (e) => {
   e.preventDefault();
   modalEle.classList.remove('hidden');
@@ -120,9 +114,25 @@ const closeModal = (e) => {
   overlayEle.classList.add('hidden');
 };
 
+const toggleDisplay = (e) => {
+  const target = e.target.id;
+  if (target === 'readbtn') {
+    currentView = true;
+    readBtn.classList.add('active');
+    unreadBtn.classList.remove('active');
+  } else {
+    currentView = false;
+    readBtn.classList.remove('active');
+    unreadBtn.classList.add('active');
+  }
+  updateDisplay();
+};
+
 openModalBtn.addEventListener('click', openModal);
 overlayEle.addEventListener('click', closeModal);
 closeModalBtn.addEventListener('click', closeModal);
+readBtn.addEventListener('click', toggleDisplay);
+unreadBtn.addEventListener('click', toggleDisplay);
 
 submitBtn.addEventListener('click', (e) => {
   e.preventDefault();

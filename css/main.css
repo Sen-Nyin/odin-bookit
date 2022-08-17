@@ -100,6 +100,7 @@ meter {
   --fnt-wt-300: 300;
   --fnt-wt-400: 400;
   --fnt-wt-700: 700;
+  --fnt-sz-display-button: 1.4rem;
   --fnt-sz-default: 1.6rem;
   --fnt-sz-section-heading: 2rem;
   --fnt-sz-card-header: 2rem;
@@ -140,8 +141,19 @@ body {
 .main {
   display: grid;
   justify-content: center;
+  align-content: start;
   gap: 2rem;
   padding: 6rem 3rem;
+}
+
+.books {
+  display: grid;
+  place-items: center;
+  gap: 2rem;
+}
+.books__status-control {
+  display: flex;
+  filter: drop-shadow(3px 10px 15px rgba(0, 0, 0, 0.45));
 }
 
 .bookshelf {
@@ -200,6 +212,25 @@ body {
   cursor: pointer;
   border: none;
   background: none;
+}
+.btn--display-select {
+  background: var(--clr-offwhite);
+  color: var(--clr-dark-grey);
+  width: 10rem;
+  height: 4rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: var(--fnt-sz-display-button);
+  cursor: pointer;
+}
+.btn--display-select:first-child {
+  border-radius: 10rem 0 0 10rem;
+}
+.btn--display-select:last-child {
+  border-radius: 0 10rem 10rem 0;
+}
+.btn--display-select:hover {
+  filter: drop-shadow(3px 5px 5px rgba(0, 0, 0, 0.45));
 }
 
 .card {
@@ -308,4 +339,9 @@ body {
 
 .unread {
   border-left: 5px solid red;
+}
+
+.active {
+  background: green;
+  color: var(--clr-offwhite);
 }/*# sourceMappingURL=main.css.map */
