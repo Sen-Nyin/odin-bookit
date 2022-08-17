@@ -102,9 +102,7 @@ const updateDisplay = () => {
       readSwitchCheck.classList.add('switch__checkbox');
       book.read ? (readSwitchCheck.checked = true) : '';
       readSwitchCheck.dataset.index = index;
-      // TODO
       readSwitchCheck.addEventListener('click', () => book.toggleRead());
-      // TODO
       readSwitchEle.append(readSwitchCheck);
       const readSwitchSlider = document.createElement('span');
       readSwitchSlider.classList.add('switch__slider', 'round');
