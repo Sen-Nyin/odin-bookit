@@ -64,14 +64,18 @@ const updateDisplay = () => {
 
       const bookTitleLabel = document.createElement('h3');
       bookTitleLabel.classList.add('card__heading', 'card--book-title');
-      bookTitleLabel.textContent = `${book.title}`;
+      bookTitleLabel.textContent = `${
+        !book.title ? 'Missing Title' : book.title
+      }`;
 
       const authorLabel = document.createElement('span');
       authorLabel.classList.add('card--author-title');
       authorLabel.textContent = 'by ';
       const authorNameText = document.createElement('span');
       authorNameText.classList.add('card--author-name');
-      authorNameText.textContent = `${book.author}`;
+      authorNameText.textContent = `${
+        !book.author ? 'Missing author' : book.author
+      }`;
       authorLabel.append(authorNameText);
 
       const pageCountLabel = document.createElement('span');
@@ -80,16 +84,23 @@ const updateDisplay = () => {
 
       const pageCountText = document.createElement('span');
       pageCountText.classList.add('card--pages-count');
-      pageCountText.textContent = `${book.pages} `;
+      pageCountText.textContent = `${!book.pages ? 'Unknown' : book.pages} `;
       pageCountLabel.prepend(pageCountText);
 
       const readStatusLabel = document.createElement('span');
       readStatusLabel.classList.add('card__heading', 'card--read-title');
       readStatusLabel.textContent = 'Read?';
 
-      const readSwitchEle = document.createElement('input');
-      readSwitchEle.setAttribute('type', 'checkbox');
-      readSwitchEle.classList.add('card--read-toggle');
+      const readSwitchEle = document.createElement('label');
+      readSwitchEle.classList.add('switch');
+      const readSwitchCheck = document.createElement('input');
+      readSwitchCheck.setAttribute('type', 'checkbox');
+      readSwitchCheck.classList.add('switch__checkbox');
+      book.read ? (readSwitchCheck.checked = true) : '';
+      readSwitchEle.append(readSwitchCheck);
+      const readSwitchSlider = document.createElement('span');
+      readSwitchSlider.classList.add('switch__slider', 'round');
+      readSwitchEle.append(readSwitchSlider);
 
       cardEle.append(coverImgEle);
       cardEle.append(bookTitleLabel);
@@ -139,10 +150,9 @@ submitBtn.addEventListener('click', (e) => {
   const bookTitleValue = document.getElementById('book-title').value;
   const authorNameValue = document.getElementById('author').value;
   const pageCountValue = document.getElementById('pages').value;
-
   const isbnValue = document.getElementById('isbn').value;
 
-  const readStatus = true;
+  const readStatus = document.getElementById('setread').checked;
   addBook(
     bookTitleValue,
     authorNameValue,

@@ -45,7 +45,11 @@
             <span class="card__heading card--pages-title">Pages</span>
             <span class="card__text card--pages-count">700</span>
             <span class="card__heading card--read-title">Read?</span>
-            <input type="checkbox" class="card--read-toggle" />
+            <!-- slider testing -->
+            <label class="switch">
+              <input class="switch__checkbox" type="checkbox" checked />
+              <span class="switch__slider round"></span>
+            </label>
           </li>
           <li class="card">
             <img
@@ -182,6 +186,16 @@
         <input type="text" id="pages" />
         <label>ISBN</label>
         <input type="number" id="isbn" />
+        <span>Read?</span>
+        <label class="switch">
+          <input
+            class="switch__checkbox"
+            type="checkbox"
+            id="setread"
+            checked
+          />
+          <span class="switch__slider round"></span>
+        </label>
         <button class="btn" id="submit">Add &rarr;</button>
       </form>
     </div>
