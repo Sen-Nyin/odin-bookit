@@ -24,7 +24,9 @@ function Book(title, author, pages, isbn, read = false) {
 }
 
 Book.prototype.toggleRead = function () {
+  console.log(this);
   this.read = !this.read;
+  console.log(this.title, ' toggled to ', this.read);
 };
 
 const addBook = (title, author, pages, isbn, read) => {
@@ -100,6 +102,9 @@ const updateDisplay = () => {
       readSwitchCheck.classList.add('switch__checkbox');
       book.read ? (readSwitchCheck.checked = true) : '';
       readSwitchCheck.dataset.index = index;
+      // TODO
+      readSwitchCheck.addEventListener('click', () => book.toggleRead());
+      // TODO
       readSwitchEle.append(readSwitchCheck);
       const readSwitchSlider = document.createElement('span');
       readSwitchSlider.classList.add('switch__slider', 'round');
