@@ -1,7 +1,7 @@
 'use strict';
 
 let currentView = 'all';
-const library = []; // [ book1, boo]
+// const library = []; // [ book1, boo]
 const bookDisplayEle = document.querySelector('.bookshelf');
 const openModalBtn = document.getElementById('add-book');
 const closeModalBtn = document.querySelector('.btn--close-modal');
@@ -12,8 +12,22 @@ const allBtn = document.getElementById('allbtn');
 const modalEle = document.querySelector('.modal');
 const overlayEle = document.querySelector('.overlay');
 
-// constructor management
+// library constructor management
+function Library(title) {
+  this.title = title;
+  this.collection = [];
+}
+Library.prototype.addItem = function (item) {
+  this.collection.push(item);
+};
+Library.prototype.removeItem = function (id) {
+  this.collection = this.collection.filter((item) => item.id != id);
+};
+const library = new Library('Books');
+
+// book constructor management
 function Book(title, author, pages, isbn, read = false) {
+  this.id = crypto.randomUUID();
   this.title = title;
   this.author = author;
   this.pages = pages;
@@ -21,29 +35,28 @@ function Book(title, author, pages, isbn, read = false) {
   this.read = read;
 }
 Book.prototype.toggleRead = function () {
-  console.log(this);
   this.read = !this.read;
-  console.log(this.title, ' toggled to ', this.read);
 };
 
 // book management
 const addBook = (title, author, pages, isbn, read) => {
-  const newBook = new Book(title, author, pages, isbn, read);
-  library.push(newBook);
+  library.addItem(new Book(title, author, pages, isbn, read));
   updateDisplay();
 };
-const removeBook = (index) => {
-  library.splice(index, 1);
+const removeBook = (id) => {
+  library.removeItem(id);
   updateDisplay();
 };
 
 // display management
 const clearDisplay = () => {
-  bookDisplayEle.innerHTML = '';
+  while (bookDisplayEle.firstChild) {
+    bookDisplayEle.firstChild.remove();
+  }
 };
 const updateDisplay = () => {
   clearDisplay();
-  for (const [index, book] of library.entries()) {
+  for (const [_, book] of library.collection.entries()) {
     if (book.read === currentView || currentView === 'all') {
       const cardEle = document.createElement('li');
       cardEle.classList.add('card', `${book.read ? 'read' : 'unread'}`);
@@ -98,7 +111,6 @@ const updateDisplay = () => {
       readSwitchCheck.setAttribute('type', 'checkbox');
       readSwitchCheck.classList.add('switch__checkbox');
       book.read ? (readSwitchCheck.checked = true) : '';
-      readSwitchCheck.dataset.index = index;
       readSwitchCheck.addEventListener('click', () => {
         book.toggleRead();
         updateDisplay();
@@ -122,7 +134,7 @@ const updateDisplay = () => {
         'assets/icons/sprite.svg' + '#icon-delete'
       );
       deleteBtn.append(deleteIcon);
-      deleteBtn.addEventListener('click', () => removeBook(index));
+      deleteBtn.addEventListener('click', () => removeBook(book.id));
       controlsContainer.append(readSwitchEle);
       controlsContainer.append(deleteBtn);
       cardEle.append(coverImgEle);
