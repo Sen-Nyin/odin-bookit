@@ -37,7 +37,6 @@ const addBook = (title, author, pages, isbn, read) => {
 };
 
 const removeBook = (index) => {
-  console.log('delete clicked on', library[index]);
   library.splice(index, 1);
   updateDisplay();
 };
@@ -154,7 +153,7 @@ const closeModal = (e) => {
   modalEle.classList.add('hidden');
   overlayEle.classList.add('hidden');
 };
-
+// toggle between viewing all / read / unread books
 const toggleDisplay = (e) => {
   const target = e.target.id;
   if (target === 'readbtn') {
@@ -176,20 +175,19 @@ const toggleDisplay = (e) => {
   updateDisplay();
 };
 
-openModalBtn.addEventListener('click', openModal);
-overlayEle.addEventListener('click', closeModal);
-closeModalBtn.addEventListener('click', closeModal);
-allBtn.addEventListener('click', toggleDisplay);
-readBtn.addEventListener('click', toggleDisplay);
-unreadBtn.addEventListener('click', toggleDisplay);
-
-submitBtn.addEventListener('click', (e) => {
+const clearForm = () => {
+  document.getElementById('book-title').value = '';
+  document.getElementById('author').value = '';
+  document.getElementById('pages').value = '';
+  document.getElementById('pages').value = '';
+  document.getElementById('isbn').value = '';
+};
+const submitForm = (e) => {
   e.preventDefault();
   const bookTitleValue = document.getElementById('book-title').value;
   const authorNameValue = document.getElementById('author').value;
   const pageCountValue = document.getElementById('pages').value;
   const isbnValue = document.getElementById('isbn').value;
-
   const readStatus = document.getElementById('setread').checked;
   addBook(
     bookTitleValue,
@@ -198,11 +196,14 @@ submitBtn.addEventListener('click', (e) => {
     isbnValue,
     readStatus
   );
-
   closeModal();
-  document.getElementById('book-title').value = '';
-  document.getElementById('author').value = '';
-  document.getElementById('pages').value = '';
-  document.getElementById('pages').value = '';
-  document.getElementById('isbn').value = '';
-});
+  clearForm();
+};
+
+openModalBtn.addEventListener('click', openModal);
+overlayEle.addEventListener('click', closeModal);
+closeModalBtn.addEventListener('click', closeModal);
+allBtn.addEventListener('click', toggleDisplay);
+readBtn.addEventListener('click', toggleDisplay);
+unreadBtn.addEventListener('click', toggleDisplay);
+submitBtn.addEventListener('click', submitForm);
