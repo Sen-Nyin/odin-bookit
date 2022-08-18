@@ -43,4 +43,12 @@
       filter: drop-shadow(3px 5px 5px rgba(0, 0, 0, 0.45));
     }
   }
+  &--delete-book {
+    fill: var(--clr-dark-grey);
+    width: 3rem;
+    aspect-ratio: 1;
+    &:hover {
+      fill: red;
+    }
+  }
 }

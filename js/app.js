@@ -1,7 +1,7 @@
 'use strict';
 
 let currentView = 'all';
-const library = [];
+const library = []; // [ book1, boo]
 const bookDisplayEle = document.querySelector('.bookshelf');
 
 const openModalBtn = document.getElementById('add-book');
@@ -37,11 +37,9 @@ const addBook = (title, author, pages, isbn, read) => {
 };
 
 const removeBook = (index) => {
-  // remove book
-  // const DEL_TARGET = document.querySelector(DATA TAG VALUE = INDEX)
-  // const READ_VALUE = library[index].read;
-  // DEL_TARGET.remove();
-  // updateDisplay(READ_VALUE);
+  console.log('delete clicked on', library[index]);
+  library.splice(index, 1);
+  updateDisplay();
 };
 
 const clearDisplay = () => {
@@ -92,12 +90,15 @@ const updateDisplay = () => {
       pageCountText.textContent = `${!book.pages ? 'Unknown' : book.pages} `;
       pageCountLabel.prepend(pageCountText);
 
-      const readStatusLabel = document.createElement('span');
-      readStatusLabel.classList.add('card__heading', 'card--read-title');
-      readStatusLabel.textContent = 'Read?';
+      const controlsContainer = document.createElement('div');
+      controlsContainer.classList.add('card__controls');
 
       const readSwitchEle = document.createElement('label');
       readSwitchEle.classList.add('switch');
+      const readSwitchLabel = document.createElement('span');
+      readSwitchLabel.classList.add('switch__label');
+      readSwitchLabel.textContent = 'Read';
+      readSwitchEle.append(readSwitchLabel);
       const readSwitchCheck = document.createElement('input');
       readSwitchCheck.setAttribute('type', 'checkbox');
       readSwitchCheck.classList.add('switch__checkbox');
@@ -112,12 +113,31 @@ const updateDisplay = () => {
       readSwitchSlider.classList.add('switch__slider', 'round');
       readSwitchEle.append(readSwitchSlider);
 
+      const deleteBtn = document.createElementNS(
+        'http://www.w3.org/2000/svg',
+        'svg'
+      );
+      deleteBtn.classList.add('btn--delete-book');
+
+      const deleteIcon = document.createElementNS(
+        'http://www.w3.org/2000/svg',
+        'use'
+      );
+      deleteIcon.setAttribute(
+        'href',
+        'assets/icons/sprite.svg' + '#icon-delete'
+      );
+      deleteBtn.append(deleteIcon);
+      deleteBtn.addEventListener('click', () => removeBook(index));
+
+      controlsContainer.append(readSwitchEle);
+      controlsContainer.append(deleteBtn);
+
       cardEle.append(coverImgEle);
       cardEle.append(bookTitleLabel);
       cardEle.append(authorLabel);
       cardEle.append(pageCountLabel);
-      cardEle.append(readStatusLabel);
-      cardEle.append(readSwitchEle);
+      cardEle.append(controlsContainer);
 
       bookDisplayEle.append(cardEle);
     }

@@ -234,12 +234,20 @@ body {
 .btn--display-select:hover {
   filter: drop-shadow(3px 5px 5px rgba(0, 0, 0, 0.45));
 }
+.btn--delete-book {
+  fill: var(--clr-dark-grey);
+  width: 3rem;
+  aspect-ratio: 1;
+}
+.btn--delete-book:hover {
+  fill: red;
+}
 
 .card {
   padding: 1.5rem;
   display: grid;
   gap: 1rem;
-  grid-template-areas: "title" "img" "author" "pages" "rttitle" "readtoggle";
+  grid-template-areas: "title" "img" "author" "pages" "controls";
   background: white;
   align-items: center;
   justify-items: center;
@@ -275,6 +283,12 @@ body {
 }
 .card--read-toggle {
   grid-area: readtoggle;
+}
+.card__controls {
+  grid-area: controls;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 /* MODAL WINDOW */
@@ -336,6 +350,13 @@ body {
   width: 6rem;
   height: 2.9rem;
   filter: drop-shadow(3px 5px 5px rgba(0, 0, 0, 0.45));
+}
+.switch__label {
+  position: absolute;
+  left: 7rem;
+  top: 25%;
+  font-size: 1.4rem;
+  text-transform: uppercase;
 }
 .switch__checkbox {
   opacity: 0;
