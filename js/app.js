@@ -11,7 +11,6 @@ const unreadBtn = document.getElementById('unreadbtn');
 const allBtn = document.getElementById('allbtn');
 const modalEle = document.querySelector('.modal');
 const overlayEle = document.querySelector('.overlay');
-const readSwitches = document.querySelectorAll('[data-index]');
 
 // constructor management
 function Book(title, author, pages, isbn, read = false) {
