@@ -1,5 +1,7 @@
 @use '../abstracts/' as a;
 
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,700&family=Ubuntu:wght@300;400;700&display=swap');
+
 :root {
   // 1 rem = 10px
   font-size: 62.5%;
@@ -9,11 +11,21 @@
   --header-bg-colour: var(--clr-light-blue);
   --nav-bg-colour: var(--clr-dark-blue);
   --footer-bg-colour: var(--clr-dark-blue);
+  --modal-bg-colour: var(--clr-offwhite);
+  --card-bg-colour: var(--clr-white)
 
-  --clr-offwhite: #edede9;
-  --clr-dark-grey: #343a40;
-  --clr-light-blue: #4361ee;
+
   --clr-dark-blue: #1d3557;
+  --clr-yellow: #ffd166;
+  --clr-creamywhite: #fef9ef;
+  --clr-green: #17c3b2;
+  --clr-light-blue: #227c9d;
+  --clr-red: #fe6d73;
+  --clr-offwhite: #fefcfb;
+  --clr-light-grey: #eeeeee;
+  --clr-dark-grey: #383838;
+  --clr-medium-grey: #505050;
+  --clr-white: #ffffff;
 
   // fonts
 
@@ -23,13 +35,16 @@
   --fnt-wt-400: 400;
   --fnt-wt-700: 700;
   --fnt-sz-display-button: 1.4rem;
+  --fnt-sz-switch-label: 1.4rem;
   --fnt-sz-default: 1.6rem;
+  --fnt-sz-form-label: 1.7rem;
   --fnt-sz-section-heading: 2rem;
   --fnt-sz-card-header: 2rem;
   --fnt-sz-brand: 2.5rem;
   --fnt-sz-plus-button: 2.5rem;
   --fnt-sz-hero-heading: 4rem;
   --fnt-sz-close-modal: 4rem;
+
 }
 
 body {

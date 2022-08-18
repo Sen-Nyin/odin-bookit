@@ -5,7 +5,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   max-width: 60rem;
-  background-color: #f3f3f3;
+  background-color: var(--modal-bg-colour);
   padding: 5rem 6rem;
   box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
   z-index: 1000;
@@ -27,7 +27,7 @@
   &__form input {
     font-size: 1.7rem;
     padding: 1rem 1.5rem;
-    border: 1px solid #ddd;
+    border: 1px solid var(--clr-light-grey);
     border-radius: 0.5rem;
   }
   &__form label {

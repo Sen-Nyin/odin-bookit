@@ -4,13 +4,13 @@
 }
 
 .read {
-  border-left: 5px solid green;
+  border-left: 5px solid var(--clr-green);
 }
 .unread {
-  border-left: 5px solid red;
+  border-left: 5px solid var(--clr-red);
 }
 
 .active {
-  background: green;
+  background: var(--clr-green);
   color: var(--clr-offwhite);
 }
