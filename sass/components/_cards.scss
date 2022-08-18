@@ -11,7 +11,8 @@
   &__image {
     grid-area: img;
     border-radius: 0.5rem;
-    align-self: start;
+    // align-self: start;
+    height: 29rem;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
   &--book-title {

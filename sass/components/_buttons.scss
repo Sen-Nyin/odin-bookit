@@ -3,13 +3,19 @@
   border-radius: 0.5rem;
   transition: 0.25s ease;
   &--add {
-    text-align: center;
+    display: grid;
+    place-items: center;
     font-size: var(--fnt-sz-plus-button);
     font-weight: var(--fnt-wt-700);
-    width: 3rem;
+    background: var(--clr-yellow);
+    width: 5rem;
     aspect-ratio: 1;
     border-radius: 100rem;
     color: var(--clr-dark-grey);
+
+    &:hover {
+      background: var(--clr-red);
+    }
   }
   &--close-modal {
     font-family: inherit;
@@ -49,6 +55,7 @@
     aspect-ratio: 1;
     &:hover {
       fill: var(--clr-red);
+      cursor: pointer;
     }
   }
 }

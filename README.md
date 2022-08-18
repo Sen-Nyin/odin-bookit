@@ -44,4 +44,11 @@ Additionally, the project gave me the opportunity to get some practice with inli
 
 No external websites were used for this project other than Google Fonts.
 
-Big thanks to
+## Credits
+
+Big thanks to tobyPlaysTheUke from The Odin Project discord who helped me to resolve an issue with the `this` keyword.
+Also a big thanks to JohnOGram for helping suggest code formatting improvements.
+
+## Socials
+
+Follow me on [twitter](https://www.twitter.com/LeonLonsdale)

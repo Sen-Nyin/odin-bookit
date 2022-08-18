@@ -96,7 +96,7 @@ meter {
   --fnt-sz-section-heading: 2rem;
   --fnt-sz-card-header: 2rem;
   --fnt-sz-brand: 2.5rem;
-  --fnt-sz-plus-button: 2.5rem;
+  --fnt-sz-plus-button: 1.8rem;
   --fnt-sz-hero-heading: 4rem;
   --fnt-sz-close-modal: 4rem;
 }
@@ -206,13 +206,18 @@ body {
   transition: 0.25s ease;
 }
 .btn--add {
-  text-align: center;
+  display: grid;
+  place-items: center;
   font-size: var(--fnt-sz-plus-button);
   font-weight: var(--fnt-wt-700);
-  width: 3rem;
+  background: var(--clr-yellow);
+  width: 5rem;
   aspect-ratio: 1;
   border-radius: 100rem;
   color: var(--clr-dark-grey);
+}
+.btn--add:hover {
+  background: var(--clr-red);
 }
 .btn--close-modal {
   font-family: inherit;
@@ -252,6 +257,7 @@ body {
 }
 .btn--delete-book:hover {
   fill: var(--clr-red);
+  cursor: pointer;
 }
 
 .card {
@@ -268,7 +274,7 @@ body {
 .card__image {
   grid-area: img;
   border-radius: 0.5rem;
-  align-self: start;
+  height: 29rem;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .card--book-title {
