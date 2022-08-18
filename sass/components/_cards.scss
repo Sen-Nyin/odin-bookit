@@ -3,7 +3,7 @@
   display: grid;
   gap: 1rem;
   grid-template-areas: 'title' 'img' 'author' 'pages' 'controls';
-  background: white;
+  background: var(--card-bg-colour);
   align-items: center;
   justify-items: center;
   border-radius: 0.5rem;

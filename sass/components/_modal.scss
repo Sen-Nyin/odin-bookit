@@ -31,7 +31,7 @@
     border-radius: 0.5rem;
   }
   &__form label {
-    font-size: 1.7rem;
+    font-size: var(--fnt-sz-form-label);
     font-weight: 500;
   }
   &__form button {
