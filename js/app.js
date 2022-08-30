@@ -195,6 +195,7 @@ class Library {
 
   addBook(title, author, pages, isbn, read) {
     console.log('Received ', title, author, pages, isbn, read); // This is working
+    console.log(this);
     this.addItem(new Book(title, author, pages, isbn, read)); // BUG empty array being stored.
     displayController.updateDisplay();
   }
@@ -206,7 +207,7 @@ class Library {
 }
 
 class Book {
-  constroctor(title, author, pages, isbn, read = false) {
+  constructor(title, author, pages, isbn, read = false) {
     this.id = crypto.randomUUID();
     this.title = title;
     this.author = author;
