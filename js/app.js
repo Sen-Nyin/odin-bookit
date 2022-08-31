@@ -194,9 +194,9 @@ class Library {
   }
 
   addBook(title, author, pages, isbn, read) {
-    console.log('Received ', title, author, pages, isbn, read); // This is working
+    console.log('Received ', title, author, pages, isbn, read);
     console.log(this);
-    this.addItem(new Book(title, author, pages, isbn, read)); // BUG empty array being stored.
+    this.addItem(new Book(title, author, pages, isbn, read));
     displayController.updateDisplay();
   }
 
@@ -225,8 +225,6 @@ class Book {
 
 const displayController = new Display();
 const library = new Library('Books');
-
-// display management
 
 // events
 displayController.openModalBtn.addEventListener(
